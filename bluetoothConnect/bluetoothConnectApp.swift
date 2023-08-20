@@ -9,9 +9,11 @@ import SwiftUI
 
 @main
 struct bluetoothConnectApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            DisplayBLEdevices()
+                .environmentObject(BluetoothViewModel())
         }
     }
 }

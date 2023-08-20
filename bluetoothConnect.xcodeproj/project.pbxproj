@@ -7,18 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1865DB2A2A92A8AE0069DD85 /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DB292A92A8AE0069DD85 /* Peripheral.swift */; };
+		1865DB2C2A92A8F80069DD85 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DB2B2A92A8F80069DD85 /* Service.swift */; };
+		1865DB2E2A92A91C0069DD85 /* Characteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DB2D2A92A91C0069DD85 /* Characteristic.swift */; };
+		1878A8842A92A01600B52F27 /* DisplayBLEdevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878A8832A92A01600B52F27 /* DisplayBLEdevices.swift */; };
 		18ECACA72A4B743F0052AA36 /* bluetoothConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECACA62A4B743F0052AA36 /* bluetoothConnectApp.swift */; };
-		18ECACA92A4B743F0052AA36 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECACA82A4B743F0052AA36 /* ContentView.swift */; };
+		18ECACA92A4B743F0052AA36 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECACA82A4B743F0052AA36 /* BluetoothViewModel.swift */; };
 		18ECACAB2A4B74410052AA36 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18ECACAA2A4B74410052AA36 /* Assets.xcassets */; };
 		18ECACAE2A4B74410052AA36 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18ECACAD2A4B74410052AA36 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1865DB292A92A8AE0069DD85 /* Peripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peripheral.swift; sourceTree = "<group>"; };
+		1865DB2B2A92A8F80069DD85 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		1865DB2D2A92A91C0069DD85 /* Characteristic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characteristic.swift; sourceTree = "<group>"; };
+		1878A8832A92A01600B52F27 /* DisplayBLEdevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayBLEdevices.swift; sourceTree = "<group>"; };
 		18ECACA32A4B743F0052AA36 /* bluetoothConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bluetoothConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18ECACA62A4B743F0052AA36 /* bluetoothConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bluetoothConnectApp.swift; sourceTree = "<group>"; };
-		18ECACA82A4B743F0052AA36 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		18ECACA82A4B743F0052AA36 /* BluetoothViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothViewModel.swift; sourceTree = "<group>"; };
 		18ECACAA2A4B74410052AA36 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18ECACAD2A4B74410052AA36 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		18ECACB62A4B77910052AA36 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		18ECACB72A4B791C0052AA36 /* bluetoothConnectRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bluetoothConnectRelease.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +42,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1878A87E2A92869800B52F27 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1865DB292A92A8AE0069DD85 /* Peripheral.swift */,
+				1865DB2B2A92A8F80069DD85 /* Service.swift */,
+				1865DB2D2A92A91C0069DD85 /* Characteristic.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		1878A87F2A9286A400B52F27 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1878A8832A92A01600B52F27 /* DisplayBLEdevices.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1878A8802A9286AA00B52F27 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				18ECACA82A4B743F0052AA36 /* BluetoothViewModel.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		18ECAC9A2A4B743F0052AA36 = {
 			isa = PBXGroup;
 			children = (
@@ -51,8 +87,12 @@
 		18ECACA52A4B743F0052AA36 /* bluetoothConnect */ = {
 			isa = PBXGroup;
 			children = (
+				1878A8802A9286AA00B52F27 /* ViewController */,
+				1878A87F2A9286A400B52F27 /* View */,
+				1878A87E2A92869800B52F27 /* Model */,
+				18ECACB72A4B791C0052AA36 /* bluetoothConnectRelease.entitlements */,
+				18ECACB62A4B77910052AA36 /* Info.plist */,
 				18ECACA62A4B743F0052AA36 /* bluetoothConnectApp.swift */,
-				18ECACA82A4B743F0052AA36 /* ContentView.swift */,
 				18ECACAA2A4B74410052AA36 /* Assets.xcassets */,
 				18ECACAC2A4B74410052AA36 /* Preview Content */,
 			);
@@ -137,7 +177,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18ECACA92A4B743F0052AA36 /* ContentView.swift in Sources */,
+				1865DB2E2A92A91C0069DD85 /* Characteristic.swift in Sources */,
+				1878A8842A92A01600B52F27 /* DisplayBLEdevices.swift in Sources */,
+				1865DB2A2A92A8AE0069DD85 /* Peripheral.swift in Sources */,
+				1865DB2C2A92A8F80069DD85 /* Service.swift in Sources */,
+				18ECACA92A4B743F0052AA36 /* BluetoothViewModel.swift in Sources */,
 				18ECACA72A4B743F0052AA36 /* bluetoothConnectApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -267,8 +311,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"bluetoothConnect/Preview Content\"";
+				DEVELOPMENT_TEAM = 2S6Y5FSG78;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = bluetoothConnect/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -292,11 +340,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = bluetoothConnect/bluetoothConnectRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"bluetoothConnect/Preview Content\"";
+				DEVELOPMENT_TEAM = 2S6Y5FSG78;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = bluetoothConnect/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
