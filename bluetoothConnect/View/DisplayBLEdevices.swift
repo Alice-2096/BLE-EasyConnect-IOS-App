@@ -9,6 +9,7 @@ import SwiftUI
 
 struct DisplayBLEdevices: View {
     @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
+    @State private var selectedDeviceName: String? = nil
     
     var body: some View {
         VStack{
@@ -19,6 +20,7 @@ struct DisplayBLEdevices: View {
             })
             ListOfScannedDevices(deviceNames: bluetoothViewModel.peripheralNames)
         }
+        .navigationBarTitle("Scanned Devices")
     }
 }
 
@@ -30,7 +32,9 @@ struct ListOfScannedDevices: View {
             Text("No devices found")
         } else {
             List(deviceNames, id: \.self) { name in
-                Text(name)
+                NavigationLink(destination: DeviceDetailsView(deviceName: name)) {
+                    Text(name)
+                }
             }
         }
     }

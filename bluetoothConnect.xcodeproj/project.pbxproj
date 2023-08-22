@@ -10,6 +10,8 @@
 		1865DB2A2A92A8AE0069DD85 /* Peripheral.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DB292A92A8AE0069DD85 /* Peripheral.swift */; };
 		1865DB2C2A92A8F80069DD85 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DB2B2A92A8F80069DD85 /* Service.swift */; };
 		1865DB2E2A92A91C0069DD85 /* Characteristic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DB2D2A92A91C0069DD85 /* Characteristic.swift */; };
+		1865DB312A93AA430069DD85 /* arduino_sketch.ino in Resources */ = {isa = PBXBuildFile; fileRef = 1865DB302A93AA420069DD85 /* arduino_sketch.ino */; };
+		1865DB332A944ABF0069DD85 /* DeviceDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1865DB322A944ABF0069DD85 /* DeviceDetailsView.swift */; };
 		1878A8842A92A01600B52F27 /* DisplayBLEdevices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1878A8832A92A01600B52F27 /* DisplayBLEdevices.swift */; };
 		18ECACA72A4B743F0052AA36 /* bluetoothConnectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECACA62A4B743F0052AA36 /* bluetoothConnectApp.swift */; };
 		18ECACA92A4B743F0052AA36 /* BluetoothViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18ECACA82A4B743F0052AA36 /* BluetoothViewModel.swift */; };
@@ -21,6 +23,9 @@
 		1865DB292A92A8AE0069DD85 /* Peripheral.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peripheral.swift; sourceTree = "<group>"; };
 		1865DB2B2A92A8F80069DD85 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		1865DB2D2A92A91C0069DD85 /* Characteristic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Characteristic.swift; sourceTree = "<group>"; };
+		1865DB2F2A93A45B0069DD85 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		1865DB302A93AA420069DD85 /* arduino_sketch.ino */ = {isa = PBXFileReference; lastKnownFileType = text; path = arduino_sketch.ino; sourceTree = "<group>"; };
+		1865DB322A944ABF0069DD85 /* DeviceDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceDetailsView.swift; sourceTree = "<group>"; };
 		1878A8832A92A01600B52F27 /* DisplayBLEdevices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayBLEdevices.swift; sourceTree = "<group>"; };
 		18ECACA32A4B743F0052AA36 /* bluetoothConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = bluetoothConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18ECACA62A4B743F0052AA36 /* bluetoothConnectApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bluetoothConnectApp.swift; sourceTree = "<group>"; };
@@ -56,6 +61,7 @@
 			isa = PBXGroup;
 			children = (
 				1878A8832A92A01600B52F27 /* DisplayBLEdevices.swift */,
+				1865DB322A944ABF0069DD85 /* DeviceDetailsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -87,6 +93,7 @@
 		18ECACA52A4B743F0052AA36 /* bluetoothConnect */ = {
 			isa = PBXGroup;
 			children = (
+				1865DB302A93AA420069DD85 /* arduino_sketch.ino */,
 				1878A8802A9286AA00B52F27 /* ViewController */,
 				1878A87F2A9286A400B52F27 /* View */,
 				1878A87E2A92869800B52F27 /* Model */,
@@ -95,6 +102,7 @@
 				18ECACA62A4B743F0052AA36 /* bluetoothConnectApp.swift */,
 				18ECACAA2A4B74410052AA36 /* Assets.xcassets */,
 				18ECACAC2A4B74410052AA36 /* Preview Content */,
+				1865DB2F2A93A45B0069DD85 /* README.md */,
 			);
 			path = bluetoothConnect;
 			sourceTree = "<group>";
@@ -167,6 +175,7 @@
 			files = (
 				18ECACAE2A4B74410052AA36 /* Preview Assets.xcassets in Resources */,
 				18ECACAB2A4B74410052AA36 /* Assets.xcassets in Resources */,
+				1865DB312A93AA430069DD85 /* arduino_sketch.ino in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +189,7 @@
 				1865DB2E2A92A91C0069DD85 /* Characteristic.swift in Sources */,
 				1878A8842A92A01600B52F27 /* DisplayBLEdevices.swift in Sources */,
 				1865DB2A2A92A8AE0069DD85 /* Peripheral.swift in Sources */,
+				1865DB332A944ABF0069DD85 /* DeviceDetailsView.swift in Sources */,
 				1865DB2C2A92A8F80069DD85 /* Service.swift in Sources */,
 				18ECACA92A4B743F0052AA36 /* BluetoothViewModel.swift in Sources */,
 				18ECACA72A4B743F0052AA36 /* bluetoothConnectApp.swift in Sources */,

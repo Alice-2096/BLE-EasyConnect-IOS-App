@@ -17,18 +17,12 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
     //central manager calls this when its state updates
     func centralManagerDidUpdateState(_ central: CBCentralManager) {
         if central.state == .poweredOn {
-            print("scanning for peripheral")
             centralManager?.scanForPeripherals(withServices: nil, options: nil)
-        }
-        else {
-            print("state == off")
         }
     }
     
     func scan(){
         centralManager?.scanForPeripherals(withServices: nil, options: nil)
-        
-        print("scanning for peripheral")
     }
     
     //central manager calls this when it discovers a peripheral while scanning
@@ -36,24 +30,35 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
         print("discovering device")
         if !discoveredPeripherals.contains(peripheral) {
             discoveredPeripherals.append(peripheral)
-            peripheralNames.append(peripheral.name ?? "Unknown device")
+            if let name = peripheral.name {
+                peripheralNames.append(name)
+            }
         }
     }
     
-    //after connected to peripheral, discover all its services
+    //make connections to the specified peripheral by name
+    func connectToPeripheral(withName name: String){
+        for peripheral in discoveredPeripherals {
+            if peripheral.name == name {
+                centralManager?.connect(peripheral, options: nil)
+            }
+        }
+    }
+    
+    //after connected to peripheral, discover its services
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
-        peripheral.discoverServices(nil)
-//      peripheral.delegate = self
+        peripheral.discoverServices(nil) //discover all services
+        peripheral.delegate = self
     }
     
 }
-//
-//extension BluetoothViewModel: CBPeripheralDelegate {
+
+extension BluetoothViewModel: CBPeripheralDelegate {
 //    func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
 //        guard let services = peripheral.services else {
 //            return
 //        }
-//
+
 //        targetService = services.first
 //        if let service = services.first {
 //            targetService = service
@@ -81,6 +86,6 @@ extension BluetoothViewModel: CBCentralManagerDelegate {
 //
 //        delegate.simpleBluetoothIO(simpleBluetoothIO: self, didReceiveValue: data.int8Value())
 //    }
-//}
+}
 
 
