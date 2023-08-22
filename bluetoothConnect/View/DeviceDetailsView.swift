@@ -6,13 +6,12 @@
 //
 
 import SwiftUI
+import CoreBluetooth
 
 struct DeviceDetailsView: View {
-    @State private var inputValue: String = ""
-    @State private var outputValue: String = ""
-    var deviceName: String
-    var deviceUUID: UUID? = nil
-        
+    @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
+    var device: CBPeripheral? = nil
+    
     var body: some View {
         VStack {
             Text("Device Information")
@@ -21,49 +20,40 @@ struct DeviceDetailsView: View {
             
             // Display Device Name and UUID
             VStack(alignment: .leading, spacing: 8) {
-                Text("Your Device Name \(deviceName)")
-                Text("Device UUID: \(deviceUUID?.uuidString ?? "No UUID available")")
+                Text("Your Device Name \(device?.name ?? "No Name available")")
+                Text("UUID: \("Not Found")")  //how to access the uuid of a CBperipheral?
             }
             .padding()
             
             Divider()
             
-            // DigitalWrite Panel
+            //Device Services and Characteristics
             VStack {
-                Text("Write to this BLE Device")
+                Text("Device Services and Characteristics")
                     .font(.headline)
                 
-                TextField("Input Value", text: $inputValue)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding()
-                
-                Button(action: {
-                    // Code to send input value to the BLE device
-                    // You can use the 'inputValue' variable here
-                }) {
-                    Text("Enter")
-                        .padding()
-                        .background(Color.blue)
-                        .foregroundColor(.white)
-                        .cornerRadius(8)
+                List {
+                    if let service = device?.services {
+                        ForEach(service, id: \.self){ serv in
+                            Section(header: Text("Service: \(serv.uuid.uuidString)")){
+                                if let chars = serv.characteristics {
+                                    ForEach(chars, id: \.self){ char in
+                                        NavigationLink(destination: CharacteristicDetailsView(characteristic: char)) {
+                                            Text("Characteristic: \(char.uuid.uuidString)")
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
             }
-            .padding()
-            
-            // Digital Output Panel
-            VStack {
-                Text("Digital Output")
-                    .font(.headline)
-                Text("Output data: \(outputValue)")
-                    .padding()
-            }
-            .padding()
         }
     }
 }
 
-struct DeviceDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        DeviceDetailsView(deviceName: "Test Device", deviceUUID:  UUID())
-    }
-}
+//struct DeviceDetailsView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        DeviceDetailsView(deviceName: "Test Device", deviceUUID:  UUID())
+//    }
+//}

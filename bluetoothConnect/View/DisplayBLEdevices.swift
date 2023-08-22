@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
+import CoreBluetooth
 
 struct DisplayBLEdevices: View {
     @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
-    @State private var selectedDeviceName: String? = nil
     
     var body: some View {
         VStack{
@@ -18,22 +18,26 @@ struct DisplayBLEdevices: View {
             }, label: {
                 Text("Click here to Scan for Peripherals")
             })
-            ListOfScannedDevices(deviceNames: bluetoothViewModel.peripheralNames)
+            ListOfScannedDevices(peripherals: bluetoothViewModel.discoveredPeripherals)
         }
         .navigationBarTitle("Scanned Devices")
     }
 }
 
 struct ListOfScannedDevices: View {
-    var deviceNames: [String]
+    @EnvironmentObject var bluetoothViewModel: BluetoothViewModel
+    var peripherals: [CBPeripheral]
     
     var body: some View {
-        if deviceNames.isEmpty {
+        if peripherals.isEmpty {
             Text("No devices found")
         } else {
-            List(deviceNames, id: \.self) { name in
-                NavigationLink(destination: DeviceDetailsView(deviceName: name)) {
-                    Text(name)
+            List(peripherals, id: \.self) { device in
+                NavigationLink(destination: DeviceDetailsView(device: device)) {
+                    Text(device.name ?? "Unknown Device")
+                }
+                .onTapGesture {
+                    bluetoothViewModel.connectedPeripheral = device
                 }
             }
         }
